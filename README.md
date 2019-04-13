@@ -1,9 +1,45 @@
-# lenovo-yoga-c930-linux
-Various fixes to provide full hardware support of Lenovo Yoga C930 on Linux
+# Linux on Lenovo Yoga C930
 
-All solutions was tested with Fedora Workstation 29 (kernel 5.0.6-200.fc29.x86_64) but should wokk with any Linux distribution. 
+> “We do not support Linux. Please call Linux to resolve this issue.”
 
-### Fix sound (enable subwoofer)
+*Lenovo support, via [jasonbhill](http://code.jasonbhill.com/linux/faulty-firmware-in-lenovo-batteries/)*
+
+## About
+
+At this page you can find various fixes to provide full hardware support of Lenovo Yoga C930 on Linux. All solutions was tested with Fedora Workstation 29 (kernel 5.0.6-200.fc29.x86_64) but should work with any Linux distribution.
+
+## Summary
+
+| Subsystem | Status | Notes |
+|---------------------|---------------|---------------------------------------------------------------------------------------------|
+| Internal storage | ✔️ Working |  |
+| Graphics | ✔️ Working |  |
+| Type-A port | ✔️ Working |  |
+| Type-C port | ⚠️ Not tested | Charging works |
+| Thunderbolt 3 | ⚠️ Not tested |  |
+| Keyboard | ✔️ Working |  |
+| 802.11ac wireless | ✔️ Working | [Fix needed](#fix-wi-fi) |
+| Speakers | ⚠️ Partially | [Fix needed](#fix-speaker) for hinge soundbar, bottom speakers not working |
+| Headphone plug | ✔️ Working | with plbossart/UCM (TODO) |
+| Battery measurement | ⚠️ Partially | cycle count not supported |
+| Backlight control | ✔️ Working |  |
+| Power button | ✔️ Working |  |
+| FN buttons | ✔️ Working | [[1]](#notes) |
+| Suspend | ⚠️ Partially | TODO: not sure, drained about 35% battery per night |
+| Screen lid switch | ✔️ Working |  |
+| Touchscreen | ✔️ Working |  |
+| Active pen | ✔️ Working |  |
+| Rotation sensor | ✔️ Working |  |
+| Light sensor | ✔️ Working |  |
+| Fingerpring sensor | ❌ Not working | (TODO: looks like linux support will be coming soonish - there's some experimental drivers) |
+| Bluetooth | ✔️ Working |  |
+| HDMI output | ⚠️ Not tested |  |
+| HDMI audio output | ⚠️ Not tested |  |
+| Webcam | ⚠️ Not tested |  |
+
+## Fixes
+
+### Fix speaker
 * Install `alsa-tools-gui` package (`alsa-utils` in some distributions)
 * Run `hdajackretask`
 * Set "Show unconnected pins" tick in "Options"
@@ -51,5 +87,10 @@ and copy resulting executable to the flash drive.
 * Install Energy Manager Driver (replace C: with B: in installation paths when needed). Then install Battery Firmware Update.
 * Done!
 
-### Fix fingerprint sensor
-Workinonit
+## Notes
+
+[1] F1-F12 row behaviour can be remapped in BIOS
+
+## Links
+
+https://forums.lenovo.com/t5/Other-Linux-Discussions/Linux-compatibility-with-Yoga-C930/td-p/4267325
