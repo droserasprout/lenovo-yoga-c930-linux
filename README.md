@@ -24,8 +24,8 @@ At this page you can find various fixes to provide full hardware support of Leno
 | Keyboard | ✔️ Working |  |
 | 802.11ac wireless | ✔️ Working | [Fix needed](#fix-wi-fi) |
 | Speakers | ⚠️ Partially | [Fix needed](#fix-speaker) for hinge soundbar, bottom speakers not working |
-| Headphone plug | ✔️ Working | with plbossart/UCM (TODO) |
-| Battery measurement | ⚠️ Partially | cycle count not supported |
+| Headphone plug | ✔️ Working | |
+| Battery measurement | ⚠️ Partially | cycle count not supported (?) |
 | Backlight control | ✔️ Working |  |
 | Power button | ✔️ Working |  |
 | FN buttons | ✔️ Working | [[1]](#notes) |
