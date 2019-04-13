@@ -10,6 +10,10 @@ At this page you can find various fixes to provide full hardware support of Leno
 
 ## Summary
 
+* Last updated: **2019-04-13**
+* BIOS version tested: **8GCN32WW**
+* Kernel version tested: **5.0.6**
+
 | Subsystem | Status | Notes |
 |---------------------|---------------|---------------------------------------------------------------------------------------------|
 | Internal storage | ✔️ Working |  |
@@ -25,7 +29,7 @@ At this page you can find various fixes to provide full hardware support of Leno
 | Backlight control | ✔️ Working |  |
 | Power button | ✔️ Working |  |
 | FN buttons | ✔️ Working | [[1]](#notes) |
-| Suspend | ⚠️ Partially | TODO: not sure, drained about 35% battery per night |
+| Suspend | ⚠️ Partially | s2idle only, see details [here](https://forums.lenovo.com/t5/Other-Linux-Discussions/Linux-compatibility-with-Yoga-C930/m-p/4350515/highlight/true#M12516) |
 | Screen lid switch | ✔️ Working |  |
 | Touchscreen | ✔️ Working |  |
 | Active pen | ✔️ Working |  |
