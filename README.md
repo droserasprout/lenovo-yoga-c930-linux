@@ -44,6 +44,8 @@ At this page you can find various fixes to provide full hardware support of Leno
 ## Fixes
 
 ### Fix speaker
+This laptop has 5.1 speaker configuration with only Front Left and Front Right working by default. This hack can enable another one (Front Center or LFE, not sure):
+
 * Install `alsa-tools-gui` package (`alsa-utils` in some distributions)
 * Run `hdajackretask`
 * Set "Show unconnected pins" tick in "Options"
@@ -51,11 +53,11 @@ At this page you can find various fixes to provide full hardware support of Leno
 * Click "Install boot override" and enter sudo password
 * Reboot
 
-You can also apply fix immediately but most likely it will fail due to `pulseaudio` autospawn. If you want to apply fix without rebooting you need to:
-* Append `autospawn = no` to `/etc/pulse/client.conf`
-* Run `pulseaudio -k`
-* Hit "Apply now" in hdajackretask window
-* Revert first step, run pulseaudio
+You can also apply fix immediately but it will most likely fail due to soundcard is in use by `pulseaudio`. If you want to apply fix without rebooting you need to stop pulseaudio first.
+
+It seems like to fix this issue either Lenovo should release BIOS update with correct pin mappings or some model definition should be added to snd-hda-intel module like it was done for another Lenovo laptops with surround sound. See [Lenovo Y530 example](https://ubuntuforums.org/showthread.php?t=1596068).
+
+**TODO:** file bugs
 
 ### Fix Wi-Fi
 There's [a bug](https://github.com/torvalds/linux/commit/ce363c2bcb2303e7fad3a79398db739c6995141b) in `ideapad-laptop` kernel module preventing wi-fi from being enabled on some models (including C930) which lack physical wi-fi switch. The solution is to prevent this module from being loaded on boot:
@@ -97,4 +99,4 @@ and copy resulting executable to the flash drive.
 
 ## Links
 
-https://forums.lenovo.com/t5/Other-Linux-Discussions/Linux-compatibility-with-Yoga-C930/td-p/4267325
+[Main thread at Lenovo forums](https://forums.lenovo.com/t5/Other-Linux-Discussions/Linux-compatibility-with-Yoga-C930/td-p/4267325)
