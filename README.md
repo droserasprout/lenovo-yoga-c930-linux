@@ -6,13 +6,12 @@
 
 ## About
 
-At this page you can find various fixes to provide full hardware support of Lenovo Yoga C930 on Linux. All solutions was tested with Fedora Workstation 29 (kernel 5.0.6-200.fc29.x86_64) but should work with any Linux distribution.
+At this page you can find various fixes to provide full hardware support of Lenovo Yoga C930 on Linux. All solutions was tested with Fedora Workstation 29 but should work with any Linux distribution.
 
 ## Summary
 
-* Last updated: **2019-04-13**
-* BIOS version tested: **8GCN32WW**
-* Kernel version tested: **5.0.6**
+* Minimum BIOS version: **8GCN32WW**
+* Minimum kernel version: **5.1rc1** (see [Older kernels](#older-kernels) otherwise)
 
 | Subsystem | Status | Notes |
 |---------------------|---------------|---------------------------------------------------------------------------------------------|
@@ -22,7 +21,7 @@ At this page you can find various fixes to provide full hardware support of Leno
 | Type-C port | ⚠️ Not tested | Charging works |
 | Thunderbolt 3 | ⚠️ Not tested |  |
 | Keyboard | ✔️ Working |  |
-| 802.11ac wireless | ✔️ Working | [Fix needed](#wi-fi) |
+| 802.11ac wireless | ✔️ Working | [fix for kernels older than 5.1rc1](#older-kernels) |
 | Speakers | ⚠️ Partially | [Fix needed](#speaker) for hinge soundbar, bottom speakers not working |
 | Headphone plug | ✔️ Working | |
 | Microphone | ❌ Not working | |
@@ -37,7 +36,7 @@ At this page you can find various fixes to provide full hardware support of Leno
 | Rotation sensor | ✔️ Working |  |
 | Light sensor | ✔️ Working |  |
 | Fingerpring sensor | ❌ Not working | you can track development progress [here](https://github.com/nmikhailov/Validity90) |
-| Bluetooth | ✔️ Working |  |
+| Bluetooth | ✔️ Working | [fix for kernels older than 5.1rc1](#older-kernels) |
 | HDMI output | ⚠️ Not tested |  |
 | HDMI audio output | ⚠️ Not tested |  |
 | Webcam | ✔️ Working |  |
@@ -60,19 +59,47 @@ It seems like to fix this issue either Lenovo should release BIOS update with co
 
 **TODO:** file bugs
 
-### Wi-Fi
-There's [a bug](https://github.com/torvalds/linux/commit/ce363c2bcb2303e7fad3a79398db739c6995141b) in `ideapad-laptop` kernel module preventing wi-fi from being enabled on some models (including C930) which lack physical wi-fi switch. Our device is in ignore list in [master](https://github.com/torvalds/linux/blob/master/drivers/platform/x86/ideapad-laptop.c#L1276) but still no luck.
+## Notes
+### Older kernels
+Kernel versions prior to **5.1rc1** have a bug in `ideapad-laptop` module preventing wireless interfaces from being enabled.
+```
+$ rfkill list
+0: ideapad_wlan: Wireless LAN
+	Soft blocked: no
+	Hard blocked: yes
+1: ideapad_bluetooth: Bluetooth
+	Soft blocked: yes
+	Hard blocked: yes
+```
+If your devices are hard blocked by rfkill there are to ways of dealing with this:
 
-**WARNING: this will prevent system from entering deep sleep, read next paragraph** 
+Recommended: cherrypick [this commit](https://github.com/torvalds/linux/commit/67133c6d99ef0d8917f764a9a70039b5e78d5e71) to desired branch and build a whole kernel or just `ideapad-laptop` module by yourself.
 
-The solution is to prevent this module from being loaded on boot:
+Another solution is to prevent faulty module from being loaded on boot:
+
+**WARNING: This will break lots of ACPI functionality including S3/S4 sleep!** 
 ```
 # sudo modprobe -r ideapad-laptop`
 # echo "blacklist ideapad-laptop" | sudo tee -a /etc/modprobe.d/blacklist.conf
 ```
+### Fn lock
 
-### S3 Sleep
-If you unload `ideapad-laptop` module system will lockout after forcefully entering S3. But when this module is loaded sleeping seems to work fine. I've attached `fwts s3` report.
+F1-F12 row behaviour can be changed in BIOS. 
+
+### Conservation Mode
+
+Conservation mode in some Lenovo laptops will stop the battery from charging above 60% to improve the lifespan of the battery.
+
+Enable:
+```
+$ echo 1 | sudo tee /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode
+```
+Disable:
+```
+$ echo 0 | sudo tee /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode
+```
+
+**NOTE:** You will still see "Charging" state and estimated time to full while being in Conservation mode.
 
 ## FW update
 ### Battery firmware
@@ -101,10 +128,6 @@ and copy resulting executable to the flash drive.
 * Poweroff laptop, press power button with holded `Fn` key. Choose "Boot menu", load from WinPE partition.
 * Install Energy Manager Driver (replace C: with B: in installation paths when needed). Then install Battery Firmware Update.
 * Done!
-
-## Notes
-
-[1] F1-F12 row behaviour can be remapped in BIOS
 
 ## Links
 
