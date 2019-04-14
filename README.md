@@ -25,6 +25,7 @@ At this page you can find various fixes to provide full hardware support of Leno
 | 802.11ac wireless | ✔️ Working | [Fix needed](#fix-wi-fi) |
 | Speakers | ⚠️ Partially | [Fix needed](#fix-speaker) for hinge soundbar, bottom speakers not working |
 | Headphone plug | ✔️ Working | |
+| Microphone | ❌ Not working | |
 | Battery measurement | ⚠️ Partially | cycle count not supported (?) |
 | Backlight control | ✔️ Working |  |
 | Power button | ✔️ Working |  |
