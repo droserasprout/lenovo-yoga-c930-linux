@@ -29,7 +29,7 @@ At this page you can find various fixes to provide full hardware support of Leno
 | Backlight control | ✔️ Working |  |
 | Power button | ✔️ Working |  |
 | FN buttons | ✔️ Working | [[1]](#notes) |
-| Suspend | ⚠️ Partially | s2idle only, see details [here](https://forums.lenovo.com/t5/Other-Linux-Discussions/Linux-compatibility-with-Yoga-C930/m-p/4350515/highlight/true#M12516) ([UPD](#s3-sleep))|
+| Suspend | ⚠️ Partially | S3/S4 modes work correctly but sleeping still drains about 5% per hour |
 | Screen lid switch | ✔️ Working |  |
 | Touchscreen | ✔️ Working |  |
 | Active pen | ✔️ Working | does not report battery level |
@@ -46,6 +46,8 @@ At this page you can find various fixes to provide full hardware support of Leno
 ### Speaker
 This laptop has 5.1 speaker configuration with only Front Left and Front Right working by default. This hack can enable another one (Front Center or LFE, not sure):
 
+**NOTE:** This hack can make headphone sound quieter.
+
 * Install `alsa-tools-gui` package (`alsa-utils` in some distributions)
 * Run `hdajackretask`
 * Set "Show unconnected pins" tick in "Options"
@@ -57,7 +59,7 @@ You can also apply fix immediately but it will most likely fail due to soundcard
 
 It seems like to fix this issue either Lenovo should release BIOS update with correct pin mappings or some model definition should be added to snd-hda-intel module like it was done for another Lenovo laptops with surround sound. See [Lenovo Y530 example](https://ubuntuforums.org/showthread.php?t=1596068).
 
-**TODO:** file bugs
+**TODO:** File ALSA bug
 
 ## Notes
 ### Older kernels
@@ -74,6 +76,8 @@ $ rfkill list
 If your devices are hard blocked by rfkill there are to ways of dealing with this:
 
 Recommended: cherrypick [this commit](https://github.com/torvalds/linux/commit/67133c6d99ef0d8917f764a9a70039b5e78d5e71) to desired branch and build a whole kernel or just `ideapad-laptop` module by yourself.
+
+**TODO:** Guide how to build patched ideapad-laptop
 
 Another solution is to prevent faulty module from being loaded on boot:
 
