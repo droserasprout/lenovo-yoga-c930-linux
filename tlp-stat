@@ -1,0 +1,266 @@
+--- TLP 1.2.1 --------------------------------------------
+
++++ Configured Settings: /etc/default/tlp
+TLP_ENABLE=1
+TLP_DEFAULT_MODE=AC
+TLP_PERSISTENT_DEFAULT=0
+DISK_IDLE_SECS_ON_AC=0
+DISK_IDLE_SECS_ON_BAT=2
+MAX_LOST_WORK_SECS_ON_AC=15
+MAX_LOST_WORK_SECS_ON_BAT=60
+CPU_HWP_ON_AC=balance_performance
+CPU_HWP_ON_BAT=balance_power
+SCHED_POWERSAVE_ON_AC=0
+SCHED_POWERSAVE_ON_BAT=1
+NMI_WATCHDOG=0
+ENERGY_PERF_POLICY_ON_AC=performance
+ENERGY_PERF_POLICY_ON_BAT=power
+DISK_DEVICES="nvme0n1 sda"
+DISK_APM_LEVEL_ON_AC="254 254"
+DISK_APM_LEVEL_ON_BAT="128 128"
+SATA_LINKPWR_ON_AC="med_power_with_dipm max_performance"
+SATA_LINKPWR_ON_BAT="med_power_with_dipm min_power"
+AHCI_RUNTIME_PM_TIMEOUT=15
+RADEON_POWER_PROFILE_ON_AC=default
+RADEON_POWER_PROFILE_ON_BAT=default
+RADEON_DPM_STATE_ON_AC=performance
+RADEON_DPM_STATE_ON_BAT=battery
+RADEON_DPM_PERF_LEVEL_ON_AC=auto
+RADEON_DPM_PERF_LEVEL_ON_BAT=auto
+WIFI_PWR_ON_AC=off
+WIFI_PWR_ON_BAT=on
+WOL_DISABLE=Y
+SOUND_POWER_SAVE_ON_AC=0
+SOUND_POWER_SAVE_ON_BAT=1
+SOUND_POWER_SAVE_CONTROLLER=Y
+BAY_POWEROFF_ON_AC=0
+BAY_POWEROFF_ON_BAT=0
+BAY_DEVICE="sr0"
+RUNTIME_PM_ON_AC=on
+RUNTIME_PM_ON_BAT=auto
+USB_AUTOSUSPEND=1
+USB_BLACKLIST_BTUSB=0
+USB_BLACKLIST_PHONE=0
+USB_BLACKLIST_PRINTER=1
+USB_BLACKLIST_WWAN=0
+RESTORE_DEVICE_STATE_ON_STARTUP=0
+NATACPI_ENABLE=1
+TPACPI_ENABLE=1
+TPSMAPI_ENABLE=1
+
++++ System Info
+System         = LENOVO Lenovo YOGA C930-13IKB 81C4
+BIOS           = 8GCN32WW
+Release        = "Fedora release 29 (Twenty Nine)"
+Kernel         = 5.0.6-200.fc29.x86_64 #1 SMP Wed Apr 3 15:09:51 UTC 2019 x86_64
+/proc/cmdline  = BOOT_IMAGE=/vmlinuz-5.0.6-200.fc29.x86_64 root=/dev/mapper/fedora-root ro resume=/dev/mapper/fedora-swap rd.lvm.lv=fedora/root rd.luks.uuid=luks-2fa18852-37cb-41cb-86ea-41766c499859 rd.lvm.lv=fedora/swap rhgb quiet LANG=en_US.UTF-8
+Init system    = systemd 
+Boot mode      = UEFI
+
++++ TLP Status
+State          = enabled
+RDW state      = not installed
+Last run       = 10:20:30 PM,    465 sec(s) ago
+Mode           = battery
+Power source   = battery
+
++++ Processor
+CPU model      = Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz
+
+/sys/devices/system/cpu/cpu0/cpufreq/scaling_driver    = intel_pstate
+/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor  = powersave
+/sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors = performance powersave
+/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq  =   400000 [kHz]
+/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq  =  4000000 [kHz]
+/sys/devices/system/cpu/cpu0/cpufreq/energy_performance_preference = balance_power
+/sys/devices/system/cpu/cpu0/cpufreq/energy_performance_available_preferences = default performance balance_performance balance_power power 
+
+/sys/devices/system/cpu/cpu1/cpufreq/scaling_driver    = intel_pstate
+/sys/devices/system/cpu/cpu1/cpufreq/scaling_governor  = powersave
+/sys/devices/system/cpu/cpu1/cpufreq/scaling_available_governors = performance powersave
+/sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq  =   400000 [kHz]
+/sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq  =  4000000 [kHz]
+/sys/devices/system/cpu/cpu1/cpufreq/energy_performance_preference = balance_power
+/sys/devices/system/cpu/cpu1/cpufreq/energy_performance_available_preferences = default performance balance_performance balance_power power 
+
+/sys/devices/system/cpu/cpu2/cpufreq/scaling_driver    = intel_pstate
+/sys/devices/system/cpu/cpu2/cpufreq/scaling_governor  = powersave
+/sys/devices/system/cpu/cpu2/cpufreq/scaling_available_governors = performance powersave
+/sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq  =   400000 [kHz]
+/sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq  =  4000000 [kHz]
+/sys/devices/system/cpu/cpu2/cpufreq/energy_performance_preference = balance_power
+/sys/devices/system/cpu/cpu2/cpufreq/energy_performance_available_preferences = default performance balance_performance balance_power power 
+
+/sys/devices/system/cpu/cpu3/cpufreq/scaling_driver    = intel_pstate
+/sys/devices/system/cpu/cpu3/cpufreq/scaling_governor  = powersave
+/sys/devices/system/cpu/cpu3/cpufreq/scaling_available_governors = performance powersave
+/sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq  =   400000 [kHz]
+/sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq  =  4000000 [kHz]
+/sys/devices/system/cpu/cpu3/cpufreq/energy_performance_preference = balance_power
+/sys/devices/system/cpu/cpu3/cpufreq/energy_performance_available_preferences = default performance balance_performance balance_power power 
+
+/sys/devices/system/cpu/cpu4/cpufreq/scaling_driver    = intel_pstate
+/sys/devices/system/cpu/cpu4/cpufreq/scaling_governor  = powersave
+/sys/devices/system/cpu/cpu4/cpufreq/scaling_available_governors = performance powersave
+/sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq  =   400000 [kHz]
+/sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq  =  4000000 [kHz]
+/sys/devices/system/cpu/cpu4/cpufreq/energy_performance_preference = balance_power
+/sys/devices/system/cpu/cpu4/cpufreq/energy_performance_available_preferences = default performance balance_performance balance_power power 
+
+/sys/devices/system/cpu/cpu5/cpufreq/scaling_driver    = intel_pstate
+/sys/devices/system/cpu/cpu5/cpufreq/scaling_governor  = powersave
+/sys/devices/system/cpu/cpu5/cpufreq/scaling_available_governors = performance powersave
+/sys/devices/system/cpu/cpu5/cpufreq/scaling_min_freq  =   400000 [kHz]
+/sys/devices/system/cpu/cpu5/cpufreq/scaling_max_freq  =  4000000 [kHz]
+/sys/devices/system/cpu/cpu5/cpufreq/energy_performance_preference = balance_power
+/sys/devices/system/cpu/cpu5/cpufreq/energy_performance_available_preferences = default performance balance_performance balance_power power 
+
+/sys/devices/system/cpu/cpu6/cpufreq/scaling_driver    = intel_pstate
+/sys/devices/system/cpu/cpu6/cpufreq/scaling_governor  = powersave
+/sys/devices/system/cpu/cpu6/cpufreq/scaling_available_governors = performance powersave
+/sys/devices/system/cpu/cpu6/cpufreq/scaling_min_freq  =   400000 [kHz]
+/sys/devices/system/cpu/cpu6/cpufreq/scaling_max_freq  =  4000000 [kHz]
+/sys/devices/system/cpu/cpu6/cpufreq/energy_performance_preference = balance_power
+/sys/devices/system/cpu/cpu6/cpufreq/energy_performance_available_preferences = default performance balance_performance balance_power power 
+
+/sys/devices/system/cpu/cpu7/cpufreq/scaling_driver    = intel_pstate
+/sys/devices/system/cpu/cpu7/cpufreq/scaling_governor  = powersave
+/sys/devices/system/cpu/cpu7/cpufreq/scaling_available_governors = performance powersave
+/sys/devices/system/cpu/cpu7/cpufreq/scaling_min_freq  =   400000 [kHz]
+/sys/devices/system/cpu/cpu7/cpufreq/scaling_max_freq  =  4000000 [kHz]
+/sys/devices/system/cpu/cpu7/cpufreq/energy_performance_preference = balance_power
+/sys/devices/system/cpu/cpu7/cpufreq/energy_performance_available_preferences = default performance balance_performance balance_power power 
+
+/sys/devices/system/cpu/intel_pstate/min_perf_pct      =  10 [%]
+/sys/devices/system/cpu/intel_pstate/max_perf_pct      = 100 [%]
+/sys/devices/system/cpu/intel_pstate/no_turbo          =   0
+/sys/devices/system/cpu/intel_pstate/turbo_pct         =  60 [%]
+/sys/devices/system/cpu/intel_pstate/num_pstates       =  37
+
+x86_energy_perf_policy.cpu0                            = power 
+x86_energy_perf_policy.cpu1                            = power 
+x86_energy_perf_policy.cpu2                            = power 
+x86_energy_perf_policy.cpu3                            = power 
+x86_energy_perf_policy.cpu4                            = power 
+x86_energy_perf_policy.cpu5                            = power 
+x86_energy_perf_policy.cpu6                            = power 
+x86_energy_perf_policy.cpu7                            = power 
+
+/sys/module/workqueue/parameters/power_efficient       = N
+/proc/sys/kernel/nmi_watchdog                          = 0
+
++++ Undervolting
+PHC kernel not available.
+
++++ Temperatures
+CPU temp               =    41 [°C]
+Fan speed              = (not available)
+
++++ File System
+/proc/sys/vm/laptop_mode               =     2
+/proc/sys/vm/dirty_writeback_centisecs =  6000
+/proc/sys/vm/dirty_expire_centisecs    =  6000
+/proc/sys/vm/dirty_ratio               =    20
+/proc/sys/vm/dirty_background_ratio    =    10
+
++++ Storage Devices
+Devices = nvme0n1 sda
+
+/dev/nvme0n1:
+  Type      = NVMe
+  Model     = WDC PC SN720 SDAPNTW-512G-1101          
+  Firmware  = 10130001
+  Scheduler = [none] mq-deadline kyber bfq (multi queue)
+
+  Runtime PM: control = auto, autosuspend_delay_ms = (not available)
+
+  SMART info:
+
+/dev/sda: not present.
+
++++ AHCI Link Power Management (ALPM)
+No AHCI-enabled host controller detected.
+
++++ Intel Graphics
+/sys/module/i915/parameters/enable_dc        = -1 (use per-chip default)
+/sys/module/i915/parameters/enable_fbc       =  1 (enabled)
+/sys/module/i915/parameters/enable_psr       =  0 (disabled)
+/sys/module/i915/parameters/modeset          = -1 (use per-chip default)
+
+/sys/class/drm/card0/gt_min_freq_mhz         =   300 [MHz]
+/sys/class/drm/card0/gt_max_freq_mhz         =  1150 [MHz]
+/sys/class/drm/card0/gt_boost_freq_mhz       =  1150 [MHz]
+/sys/kernel/debug/dri/0/i915_ring_freq_table: 300 350 400 450 500 550 600 650 700 750 800 850 900 950 1000 1050 1100 1150 [MHz] 
+
++++ Wireless
+bluetooth = on
+wifi      = on
+wwan      = none (no device)
+
+hci0(btusb)                   : bluetooth, not connected
+wlp107s0(iwlwifi)             : wifi, connected, power management = on
+
++++ Audio
+/sys/module/snd_hda_intel/parameters/power_save            = 1
+/sys/module/snd_hda_intel/parameters/power_save_controller = Y
+
++++ PCIe Active State Power Management
+/sys/module/pcie_aspm/parameters/policy = default
+
++++ Runtime Power Management
+Device blacklist = (not configured)
+Driver blacklist = amdgpu mei_me nouveau nvidia pcieport radeon (default)
+
+/sys/bus/pci/devices/0000:00:00.0/power/control = auto (0x060000, Host bridge, skl_uncore)
+/sys/bus/pci/devices/0000:00:02.0/power/control = auto (0x030000, VGA compatible controller, i915)
+/sys/bus/pci/devices/0000:00:04.0/power/control = auto (0x118000, Signal processing controller, proc_thermal)
+/sys/bus/pci/devices/0000:00:14.0/power/control = auto (0x0c0330, USB controller, xhci_hcd)
+/sys/bus/pci/devices/0000:00:14.2/power/control = auto (0x118000, Signal processing controller, intel_pch_thermal)
+/sys/bus/pci/devices/0000:00:15.0/power/control = auto (0x118000, Signal processing controller, intel-lpss)
+/sys/bus/pci/devices/0000:00:15.1/power/control = auto (0x118000, Signal processing controller, intel-lpss)
+/sys/bus/pci/devices/0000:00:15.3/power/control = auto (0x118000, Signal processing controller, intel-lpss)
+/sys/bus/pci/devices/0000:00:16.0/power/control = auto (0x078000, Communication controller, mei_me)
+/sys/bus/pci/devices/0000:00:19.0/power/control = auto (0x118000, Signal processing controller, intel-lpss)
+/sys/bus/pci/devices/0000:00:1c.0/power/control = on   (0x060400, PCI bridge, pcieport)
+/sys/bus/pci/devices/0000:00:1c.4/power/control = auto (0x060400, PCI bridge, pcieport)
+/sys/bus/pci/devices/0000:00:1d.0/power/control = auto (0x060400, PCI bridge, pcieport)
+/sys/bus/pci/devices/0000:00:1f.0/power/control = auto (0x060100, ISA bridge, no driver)
+/sys/bus/pci/devices/0000:00:1f.2/power/control = auto (0x058000, Memory controller, no driver)
+/sys/bus/pci/devices/0000:00:1f.3/power/control = auto (0x040100, Multimedia audio controller, snd_hda_intel)
+/sys/bus/pci/devices/0000:00:1f.4/power/control = auto (0x0c0500, SMBus, i801_smbus)
+/sys/bus/pci/devices/0000:6b:00.0/power/control = auto (0x028000, Network controller, iwlwifi)
+/sys/bus/pci/devices/0000:6c:00.0/power/control = auto (0x010802, Non-Volatile memory controller, nvme)
+
++++ USB
+Autosuspend         = enabled
+Device whitelist    = (not configured)
+Device blacklist    = (not configured)
+Bluetooth blacklist = disabled
+Phone blacklist     = disabled
+WWAN blacklist      = disabled
+
+Bus 002 Device 001 ID 1d6b:0003 control = auto, autosuspend_delay_ms =    0 -- Linux Foundation 3.0 root hub (hub)
+Bus 001 Device 004 ID 8087:0025 control = auto, autosuspend_delay_ms = 2000 -- Intel Corp.  (btusb)
+Bus 001 Device 003 ID 06cb:0081 control = auto, autosuspend_delay_ms = 2000 -- Synaptics, Inc.  (no driver)
+Bus 001 Device 002 ID 04f2:b61e control = auto, autosuspend_delay_ms = 2000 -- Chicony Electronics Co., Ltd  (uvcvideo)
+Bus 001 Device 001 ID 1d6b:0002 control = auto, autosuspend_delay_ms =    0 -- Linux Foundation 2.0 root hub (hub)
+
++++ Battery Features
+natacpi    = inactive (no kernel support)
+tpacpi-bat = inactive (laptop not supported)
+tp-smapi   = inactive (laptop not supported)
+
++++ Battery Status
+/sys/class/power_supply/BAT1/manufacturer                   = Celxpert
+/sys/class/power_supply/BAT1/model_name                     = BASE-BAT
+/sys/class/power_supply/BAT1/cycle_count                    = (not supported)
+/sys/class/power_supply/BAT1/energy_full_design             =  60050 [mWh]
+/sys/class/power_supply/BAT1/energy_full                    =  60050 [mWh]
+/sys/class/power_supply/BAT1/energy_now                     =  58990 [mWh]
+/sys/class/power_supply/BAT1/power_now                      =   5808 [mW]
+/sys/class/power_supply/BAT1/status                         = Discharging
+
+
+Charge                                                      =   98.2 [%]
+Capacity                                                    =  100.0 [%]
+
