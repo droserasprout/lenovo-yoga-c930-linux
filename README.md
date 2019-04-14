@@ -33,10 +33,10 @@ At this page you can find various fixes to provide full hardware support of Leno
 | Suspend | ⚠️ Partially | s2idle only, see details [here](https://forums.lenovo.com/t5/Other-Linux-Discussions/Linux-compatibility-with-Yoga-C930/m-p/4350515/highlight/true#M12516) |
 | Screen lid switch | ✔️ Working |  |
 | Touchscreen | ✔️ Working |  |
-| Active pen | ✔️ Working |  |
+| Active pen | ✔️ Working | does not report battery level |
 | Rotation sensor | ✔️ Working |  |
 | Light sensor | ✔️ Working |  |
-| Fingerpring sensor | ❌ Not working | (TODO: looks like linux support will be coming soonish - there's some experimental drivers) |
+| Fingerpring sensor | ❌ Not working | you can track development progress [here](https://github.com/nmikhailov/Validity90) |
 | Bluetooth | ✔️ Working |  |
 | HDMI output | ⚠️ Not tested |  |
 | HDMI audio output | ⚠️ Not tested |  |
