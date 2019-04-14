@@ -99,4 +99,12 @@ and copy resulting executable to the flash drive.
 
 ## Links
 
-[Main thread at Lenovo forums](https://forums.lenovo.com/t5/Other-Linux-Discussions/Linux-compatibility-with-Yoga-C930/td-p/4267325)
+* [Main thread at Lenovo forums](https://forums.lenovo.com/t5/Other-Linux-Discussions/Linux-compatibility-with-Yoga-C930/td-p/4267325)
+* [Lenovo subreddit](https://www.reddit.com/r/Lenovo/)
+
+### Misc
+
+* https://github.com/NixOS/nixpkgs/issues/51037
+* https://01.org/linuxgraphics/gfx-docs/drm/sound/hd-audio/models.html
+* https://01.org/linuxgraphics/gfx-docs/drm/sound/hd-audio/notes.html
+* https://git.alsa-project.org/?p=alsa.git;a=tree;f=hda-analyzer
