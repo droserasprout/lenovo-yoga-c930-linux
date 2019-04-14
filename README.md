@@ -22,15 +22,15 @@ At this page you can find various fixes to provide full hardware support of Leno
 | Type-C port | ⚠️ Not tested | Charging works |
 | Thunderbolt 3 | ⚠️ Not tested |  |
 | Keyboard | ✔️ Working |  |
-| 802.11ac wireless | ✔️ Working | [Fix needed](#fix-wi-fi) |
-| Speakers | ⚠️ Partially | [Fix needed](#fix-speaker) for hinge soundbar, bottom speakers not working |
+| 802.11ac wireless | ✔️ Working | [Fix needed](#wi-fi) |
+| Speakers | ⚠️ Partially | [Fix needed](#speaker) for hinge soundbar, bottom speakers not working |
 | Headphone plug | ✔️ Working | |
 | Microphone | ❌ Not working | |
 | Battery measurement | ⚠️ Partially | cycle count not supported (?) |
 | Backlight control | ✔️ Working |  |
 | Power button | ✔️ Working |  |
 | FN buttons | ✔️ Working | [[1]](#notes) |
-| Suspend | ⚠️ Partially | s2idle only, see details [here](https://forums.lenovo.com/t5/Other-Linux-Discussions/Linux-compatibility-with-Yoga-C930/m-p/4350515/highlight/true#M12516) |
+| Suspend | ⚠️ Partially | s2idle only, see details [here](https://forums.lenovo.com/t5/Other-Linux-Discussions/Linux-compatibility-with-Yoga-C930/m-p/4350515/highlight/true#M12516) ([UPD](#s3-sleep))|
 | Screen lid switch | ✔️ Working |  |
 | Touchscreen | ✔️ Working |  |
 | Active pen | ✔️ Working | does not report battery level |
@@ -44,7 +44,7 @@ At this page you can find various fixes to provide full hardware support of Leno
 
 ## Fixes
 
-### Fix speaker
+### Speaker
 This laptop has 5.1 speaker configuration with only Front Left and Front Right working by default. This hack can enable another one (Front Center or LFE, not sure):
 
 * Install `alsa-tools-gui` package (`alsa-utils` in some distributions)
@@ -60,14 +60,22 @@ It seems like to fix this issue either Lenovo should release BIOS update with co
 
 **TODO:** file bugs
 
-### Fix Wi-Fi
-There's [a bug](https://github.com/torvalds/linux/commit/ce363c2bcb2303e7fad3a79398db739c6995141b) in `ideapad-laptop` kernel module preventing wi-fi from being enabled on some models (including C930) which lack physical wi-fi switch. The solution is to prevent this module from being loaded on boot:
+### Wi-Fi
+There's [a bug](https://github.com/torvalds/linux/commit/ce363c2bcb2303e7fad3a79398db739c6995141b) in `ideapad-laptop` kernel module preventing wi-fi from being enabled on some models (including C930) which lack physical wi-fi switch. Our device is in ignore list in [master](https://github.com/torvalds/linux/blob/master/drivers/platform/x86/ideapad-laptop.c#L1276) but still no luck.
+
+**WARNING: this will prevent system from entering deep sleep, read next paragraph** 
+
+The solution is to prevent this module from being loaded on boot:
 ```
 # sudo modprobe -r ideapad-laptop`
 # echo "blacklist ideapad-laptop" | sudo tee -a /etc/modprobe.d/blacklist.conf
 ```
 
-### Fix battery firmware (optional)
+### S3 Sleep
+If you unload `ideapad-laptop` module system will lockout after forcefully entering S3. But when this module is loaded sleeping seems to work fine. I've attached `fwts s3` report.
+
+## FW update
+### Battery firmware
 
 I have wiped Windows partitions and installed Fedora right after purchasing this laptop and ensuring latest BIOS version is installed. After some time I've found out that battery stucked on `99% Charging` and never goes `100% Full`. If you're facing the same issue first of all: **DO NOT PANIC**. At least before recharging battery 3-5 full cycles. In my case this helped, the problem is gone.
 
