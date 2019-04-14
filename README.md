@@ -39,7 +39,7 @@ At this page you can find various fixes to provide full hardware support of Leno
 | Bluetooth | ✔️ Working |  |
 | HDMI output | ⚠️ Not tested |  |
 | HDMI audio output | ⚠️ Not tested |  |
-| Webcam | ⚠️ Not tested |  |
+| Webcam | ✔️ Working |  |
 
 ## Fixes
 
