@@ -11,7 +11,7 @@ At this page you can find various fixes to provide full hardware support of Leno
 ## Summary
 
 * Minimum BIOS version: **8GCN32WW**
-* Minimum kernel version: **5.1rc1** (see [Older kernels](#older-kernels) otherwise)
+* Minimum kernel version: **5.1-rc1** (see [Older kernels](#older-kernels) otherwise)
 
 | Subsystem | Status | Notes |
 |---------------------|---------------|---------------------------------------------------------------------------------------------|
@@ -21,7 +21,7 @@ At this page you can find various fixes to provide full hardware support of Leno
 | Type-C port | ⚠️ Not tested | Charging works |
 | Thunderbolt 3 | ⚠️ Not tested |  |
 | Keyboard | ✔️ Working |  |
-| 802.11ac wireless | ✔️ Working | [fix for kernels older than 5.1rc1](#older-kernels) |
+| 802.11ac wireless | ✔️ Working | [fix for kernels older than 5.1-rc1](#older-kernels) |
 | Speakers | ⚠️ Partially | [Fix needed](#speaker) for hinge soundbar, bottom speakers not working |
 | Headphone plug | ✔️ Working | |
 | Microphone | ❌ Not working | |
@@ -36,7 +36,7 @@ At this page you can find various fixes to provide full hardware support of Leno
 | Rotation sensor | ✔️ Working |  |
 | Light sensor | ✔️ Working |  |
 | Fingerpring sensor | ❌ Not working | you can track development progress [here](https://github.com/nmikhailov/Validity90) |
-| Bluetooth | ✔️ Working | [fix for kernels older than 5.1rc1](#older-kernels) |
+| Bluetooth | ✔️ Working | [fix for kernels older than 5.1-rc1](#older-kernels) |
 | HDMI output | ⚠️ Not tested |  |
 | HDMI audio output | ⚠️ Not tested |  |
 | Webcam | ✔️ Working |  |
@@ -63,7 +63,7 @@ It seems like to fix this issue either Lenovo should release BIOS update with co
 
 ## Notes
 ### Older kernels
-Kernel versions prior to **5.1rc1** have a bug in `ideapad-laptop` module preventing wireless interfaces from being enabled.
+Kernel versions prior to **5.1-rc1** have a bug in `ideapad-laptop` module preventing wireless interfaces from being enabled.
 ```
 $ rfkill list
 0: ideapad_wlan: Wireless LAN
@@ -73,7 +73,7 @@ $ rfkill list
 	Soft blocked: yes
 	Hard blocked: yes
 ```
-If your devices are hard blocked by rfkill there are to ways of dealing with this:
+If your devices are hard blocked by rfkill there are two ways of dealing with this:
 
 Recommended: cherrypick [this commit](https://github.com/torvalds/linux/commit/67133c6d99ef0d8917f764a9a70039b5e78d5e71) to desired branch and build a whole kernel or just `ideapad-laptop` module by yourself.
 
