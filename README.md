@@ -35,7 +35,7 @@ At this page you can find various fixes to provide full hardware support of Leno
 | Active pen | ✔️ Working | does not report battery level |
 | Rotation sensor | ✔️ Working |  |
 | Light sensor | ✔️ Working |  |
-| Fingerpring sensor | ❌ Not working | you can track development progress [here](https://github.com/nmikhailov/Validity90) |
+| Fingerprint sensor | ❌ Not working | you can track development progress [here](https://github.com/nmikhailov/Validity90) |
 | Bluetooth | ✔️ Working | [fix for kernels older than 5.1-rc1](#older-kernels) |
 | HDMI output | ⚠️ Not tested |  |
 | HDMI audio output | ⚠️ Not tested |  |
