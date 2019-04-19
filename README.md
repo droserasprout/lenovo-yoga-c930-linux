@@ -18,7 +18,7 @@ At this page you can find various fixes to provide full hardware support of Leno
 | Internal storage | ✔️ Working |  |
 | Graphics | ✔️ Working |  |
 | Type-A port | ✔️ Working |  |
-| Type-C port | ⚠️ Not tested | Charging works |
+| Type-C port | ✔️ Working |  |
 | Thunderbolt 3 | ⚠️ Not tested |  |
 | Keyboard | ✔️ Working |  |
 | 802.11ac wireless | ✔️ Working | [fix for kernels older than 5.1-rc1](#older-kernels) |
