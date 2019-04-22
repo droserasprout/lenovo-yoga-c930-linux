@@ -14,7 +14,7 @@ If your main question is "Should I buy this laptop for using with Linux now?" th
 
 * Minimum BIOS version: **8GCN32WW**
 * Minimum kernel version: **5.1-rc1** (see [Older kernels](#older-kernels) otherwise)
-* Tested kernel version: **5.1-rc6**
+* Latest tested kernel version: **5.1-rc6**
 
 | Subsystem | Status | Notes |
 |---------------------|---------------|---------------------------------------------------------------------------------------------|
@@ -78,7 +78,7 @@ Recommended: cherrypick [this commit](https://github.com/torvalds/linux/commit/6
 
 Another solution is to prevent faulty module from being loaded on boot:
 
-**WARNING: This will break lots of ACPI functionality including S3/S4 sleep!** 
+**WARNING: This could break some ACPI functionality! Use at your own risk!** 
 ```
 # sudo modprobe -r ideapad-laptop`
 # echo "blacklist ideapad-laptop" | sudo tee -a /etc/modprobe.d/blacklist.conf
@@ -88,7 +88,7 @@ Another solution is to prevent faulty module from being loaded on boot:
 
 #### S0 (s2idle) power state state battery drain
 
-Our main troubleshooting guide: [(How to achieve S0ix states in Linux)](https://01.org/blogs/qwang59/2018/how-achieve-s0ix-states-linux)
+Our main troubleshooting guide: [How to achieve S0ix states in Linux](https://01.org/blogs/qwang59/2018/how-achieve-s0ix-states-linux)
 
 > The S0ix state is entered only when the `low_power_idle_system_residency_us` counter increases during the S2idle low power state.
 
@@ -98,9 +98,9 @@ $ cat /sys/kernel/debug/pmc_core/slp_s0_residency_usec
 $ cat /sys/devices/system/cpu/cpuidle/low_power_idle_cpu_residency_us
 0
 ```
-So seems like is broken.
+So seems like S0ix is broken for now.
 
-[kernel.org upstream bug](https://bugzilla.kernel.org/show_bug.cgi?id=203383)
+[kernel.org upstream bug filed](https://bugzilla.kernel.org/show_bug.cgi?id=203383)
 
 #### S3 (deep) power state not working
 
