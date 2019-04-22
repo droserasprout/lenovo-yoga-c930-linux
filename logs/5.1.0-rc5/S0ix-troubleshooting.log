@@ -1,0 +1,41 @@
+$ cat /lib/modules/$(uname -r)/build/.config | grep -e INTEL_PMC -e INTEL_IPS
+CONFIG_INTEL_IPS=m
+CONFIG_INTEL_PMC_CORE=y
+CONFIG_INTEL_PMC_IPC=y
+
+$ sudo turbostat --Summary --show GFX%rc6 sleep 10
+[...]
+11.371309 sec
+GFX%rc6
+80.50
+
+$ sudo cat /sys/kernel/debug/dri/0/i915_dmc_info
+fw loaded: yes
+path: i915/kbl_dmc_ver1_04.bin
+version: 1.4
+DC3 -> DC5 count: 33
+DC5 -> DC6 count: 0
+program base: 0x09004040
+ssp base: 0x00002fc0
+htp: 0x00b40068
+
+$ dmesg | grep DMC
+[    1.658946] [drm] Finished loading DMC firmware i915/kbl_dmc_ver1_04.bin (v1.4)
+
+$ echo 1 | sudo tee /sys/power/pm_debug_messages
+1
+$ echo freeze | sudo tee /sys/power/state
+freeze
+$ dmesg | grep LPI
+[    0.008120] ACPI: LPIT 0x000000002FFBB000 000094 (v01 LENOVO CB-01    00000001 ACPI 00040000)
+[39794.303261] ACPI: \_PR_.PR00: LPI: Device not power manageable
+[39794.303267] ACPI: \_PR_.PR01: LPI: Device not power manageable
+[39794.303270] ACPI: \_PR_.PR02: LPI: Device not power manageable
+[39794.303273] ACPI: \_PR_.PR03: LPI: Device not power manageable
+[39794.303276] ACPI: \_PR_.PR04: LPI: Device not power manageable
+[39794.303278] ACPI: \_PR_.PR05: LPI: Device not power manageable
+[39794.303281] ACPI: \_PR_.PR06: LPI: Device not power manageable
+[39794.303283] ACPI: \_PR_.PR07: LPI: Device not power manageable
+[39794.303287] ACPI: \_SB_.PCI0.GFX0: LPI: Device not power manageable
+[39794.303296] ACPI: \_SB_.PCI0.RP05.PXSX: LPI: Device not power manageable
+[39794.303299] ACPI: \_SB_.PCI0.RP09.PXSX: LPI: Device not power manageable

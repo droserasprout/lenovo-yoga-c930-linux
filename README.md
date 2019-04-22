@@ -6,12 +6,15 @@
 
 ## About
 
-At this page you can find various fixes to provide full hardware support of Lenovo Yoga C930 on Linux. All solutions was tested with Fedora Workstation 29 but should work with any Linux distribution.
+At this page you can find various notes about hardware support of Lenovo Yoga C930 on Linux. All solutions was tested with Fedora Workstation 29 but should work with any Linux distribution.
+
+If your main question is "Should I buy this laptop for using with Linux now?" than answer is "No". Massive ACPI and Power Management issues, microphone, surround speakers and fingerprint sensor not working.
 
 ## Summary
 
 * Minimum BIOS version: **8GCN32WW**
 * Minimum kernel version: **5.1-rc1** (see [Older kernels](#older-kernels) otherwise)
+* Tested kernel version: **5.1-rc6**
 
 | Subsystem | Status | Notes |
 |---------------------|---------------|---------------------------------------------------------------------------------------------|
@@ -21,22 +24,16 @@ At this page you can find various fixes to provide full hardware support of Leno
 | Type-C port | ✔️ Working |  |
 | Thunderbolt 3 | ⚠️ Not tested |  |
 | Keyboard | ✔️ Working |  |
-| 802.11ac wireless | ✔️ Working | [fix for kernels older than 5.1-rc1](#older-kernels) |
+| Wi-Fi, Bluetooth | ✔️ Working | [fix for kernels older than 5.1-rc1](#older-kernels) |
 | Speakers | ⚠️ Partially | [Fix needed](#speaker) for hinge soundbar, bottom speakers not working |
 | Headphone plug | ✔️ Working | |
 | Microphone | ❌ Not working | |
-| Battery measurement | ⚠️ Partially | cycle count not supported (?) |
-| Backlight control | ✔️ Working |  |
-| Power button | ✔️ Working |  |
-| FN buttons | ✔️ Working | [[1]](#notes) |
-| Suspend | ⚠️ Partially | S3/S4 modes work correctly but sleeping still drains about 5% per hour |
-| Screen lid switch | ✔️ Working |  |
+| Power Management | ⚠️ Partially | critical suspend issues, see [notes](#power-management-issues)
 | Touchscreen | ✔️ Working |  |
 | Active pen | ✔️ Working | does not report battery level |
 | Rotation sensor | ✔️ Working |  |
 | Light sensor | ✔️ Working |  |
 | Fingerprint sensor | ❌ Not working | you can track development progress [here](https://github.com/nmikhailov/Validity90) |
-| Bluetooth | ✔️ Working | [fix for kernels older than 5.1-rc1](#older-kernels) |
 | HDMI output | ⚠️ Not tested |  |
 | HDMI audio output | ⚠️ Not tested |  |
 | Webcam | ✔️ Working |  |
@@ -86,6 +83,48 @@ Another solution is to prevent faulty module from being loaded on boot:
 # sudo modprobe -r ideapad-laptop`
 # echo "blacklist ideapad-laptop" | sudo tee -a /etc/modprobe.d/blacklist.conf
 ```
+
+### Power Management issues
+
+#### S0 (s2idle) power state state battery drain
+
+Our main troubleshooting guide: [(How to achieve S0ix states in Linux)](https://01.org/blogs/qwang59/2018/how-achieve-s0ix-states-linux)
+
+> The S0ix state is entered only when the `low_power_idle_system_residency_us` counter increases during the S2idle low power state.
+
+```
+$ cat /sys/kernel/debug/pmc_core/slp_s0_residency_usec
+0
+$ cat /sys/devices/system/cpu/cpuidle/low_power_idle_cpu_residency_us
+0
+```
+So seems like is broken.
+
+[kernel.org upstream bug](https://bugzilla.kernel.org/show_bug.cgi?id=203383)
+
+#### S3 (deep) power state not working
+
+ACPI reports that system supports S3 state:
+```
+$ dmesg | grep S3
+[    0.319612] ACPI: (supports S0 S3 S4 S5)
+```
+But as initially reported by user *kawb* [here](https://forums.lenovo.com/t5/Other-Linux-Discussions/Linux-compatibility-with-Yoga-C930/m-p/4350515/highlight/true#M12516) entering S3 state makes system completely unresponsive (black screen with no backlight, power LED on, fans on). The only way to escape is to **power cycle** laptop (poweroff with long power button press, **wait about 10 seconds**, press power button again).
+
+Default  `mem_sleep` state is `s2idle`, so to force entering S3 we have to set `mem_sleep` to `deep`:
+```
+$ cat /sys/power/mem_sleep
+[s2idle] deep
+$ echo deep | sudo tee /sys/power/mem_sleep
+deep
+$ # WARNING: deadlock ahead!
+$ systemctl suspend
+```
+
+#### ACPI: button: The lid device is not compliant to SW_LID
+
+#### cycle_count (not supported)
+
 ### Fn lock
 
 F1-F12 row behaviour can be changed in BIOS. 
@@ -137,6 +176,15 @@ and copy resulting executable to the flash drive.
 
 * [Main thread at Lenovo forums](https://forums.lenovo.com/t5/Other-Linux-Discussions/Linux-compatibility-with-Yoga-C930/td-p/4267325)
 * [Lenovo subreddit](https://www.reddit.com/r/Lenovo/)
+
+### Power Management
+
+* [System Sleep States](https://www.kernel.org/doc/html/v4.15/admin-guide/pm/sleep-states.html)
+* [System Power Management Sleep States](https://www.kernel.org/doc/Documentation/power/states.txt)
+* [TLP FAQ](https://linrunner.de/en/tlp/docs/tlp-faq.html)
+* [(How to achieve S0ix states in Linux)](https://01.org/blogs/qwang59/2018/how-achieve-s0ix-states-linux)
+* [Lenovo X1C6 / X1Y3 (2018): No deep sleep (S3)](https://bbs.archlinux.org/viewtopic.php?id=234913)
+* [linux-surface-patches (may be related)](https://github.com/kitakar5525/linux-surface-patches)
 
 ### Misc
 

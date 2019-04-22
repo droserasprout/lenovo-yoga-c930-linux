@@ -1,0 +1,94 @@
+### ltr_ignore
+### ltr_show
+SOUTHPORT_A                     	LTR: RAW: 0x0               	Non-Snoop(ns): 0               	Snoop(ns): 0               
+SOUTHPORT_B                     	LTR: RAW: 0x8c548c54        	Non-Snoop(ns): 2752512         	Snoop(ns): 2752512         
+SATA                            	LTR: RAW: 0x0               	Non-Snoop(ns): 0               	Snoop(ns): 0               
+GIGABIT_ETHERNET                	LTR: RAW: 0x0               	Non-Snoop(ns): 0               	Snoop(ns): 0               
+XHCI                            	LTR: RAW: 0x13ff            	Non-Snoop(ns): 0               	Snoop(ns): 0               
+Reserved                        	LTR: RAW: 0x0               	Non-Snoop(ns): 0               	Snoop(ns): 0               
+ME                              	LTR: RAW: 0xc000c00         	Non-Snoop(ns): 0               	Snoop(ns): 0               
+EVA                             	LTR: RAW: 0x0               	Non-Snoop(ns): 0               	Snoop(ns): 0               
+SOUTHPORT_C                     	LTR: RAW: 0x10031003        	Non-Snoop(ns): 0               	Snoop(ns): 0               
+HD_AUDIO                        	LTR: RAW: 0x0               	Non-Snoop(ns): 0               	Snoop(ns): 0               
+LPSS                            	LTR: RAW: 0x0               	Non-Snoop(ns): 0               	Snoop(ns): 0               
+SOUTHPORT_D                     	LTR: RAW: 0x0               	Non-Snoop(ns): 0               	Snoop(ns): 0               
+SOUTHPORT_E                     	LTR: RAW: 0x0               	Non-Snoop(ns): 0               	Snoop(ns): 0               
+CAMERA                          	LTR: RAW: 0x0               	Non-Snoop(ns): 0               	Snoop(ns): 0               
+ESPI                            	LTR: RAW: 0x0               	Non-Snoop(ns): 0               	Snoop(ns): 0               
+SCC                             	LTR: RAW: 0x0               	Non-Snoop(ns): 0               	Snoop(ns): 0               
+ISH                             	LTR: RAW: 0x0               	Non-Snoop(ns): 0               	Snoop(ns): 0               
+CURRENT_PLATFORM                	LTR: RAW: 0x40201           	Non-Snoop(ns): 0               	Snoop(ns): 0               
+AGGREGATED_SYSTEM               	LTR: RAW: 0x7fbfdfe         	Non-Snoop(ns): 0               	Snoop(ns): 0               
+### mphy_core_lanes_power_gating_status
+MPHY CORE LANE 0                	State: Power gated
+MPHY CORE LANE 1                	State: Power gated
+MPHY CORE LANE 2                	State: Power gated
+MPHY CORE LANE 3                	State: Power gated
+MPHY CORE LANE 4                	State: Power gated
+MPHY CORE LANE 5                	State: Power gated
+MPHY CORE LANE 6                	State: Power gated
+MPHY CORE LANE 7                	State: Power gated
+MPHY CORE LANE 8                	State: Power gated
+MPHY CORE LANE 9                	State: Power gated
+MPHY CORE LANE 10               	State: Power gated
+MPHY CORE LANE 11               	State: Power gated
+MPHY CORE LANE 12               	State: Power gated
+MPHY CORE LANE 13               	State: Power gated
+MPHY CORE LANE 14               	State: Power gated
+MPHY CORE LANE 15               	State: Power gated
+### package_cstate_show
+Package C2 : 0x2a140749a8
+Package C3 : 0x169307f66c
+Package C6 : 0x12d95d778
+Package C7 : 0x12b8a724
+Package C8 : 0x159ca8d778
+Package C9 : 0x0
+Package C10 : 0x0
+### pch_ip_power_gating_status
+PCH IP: 0  - PMC                             	State: On
+PCH IP: 1  - OPI-DMI                         	State: On
+PCH IP: 2  - SPI / eSPI                      	State: On
+PCH IP: 3  - XHCI                            	State: On
+PCH IP: 4  - SPA                             	State: Off
+PCH IP: 5  - SPB                             	State: Off
+PCH IP: 6  - SPC                             	State: Off
+PCH IP: 7  - GBE                             	State: Off
+PCH IP: 8  - SATA                            	State: Off
+PCH IP: 9  - HDA-PGD0                        	State: Off
+PCH IP: 10 - HDA-PGD1                        	State: Off
+PCH IP: 11 - HDA-PGD2                        	State: Off
+PCH IP: 12 - HDA-PGD3                        	State: Off
+PCH IP: 13 - RSVD                            	State: Off
+PCH IP: 14 - LPSS                            	State: On
+PCH IP: 15 - LPC                             	State: Off
+PCH IP: 16 - SMB                             	State: Off
+PCH IP: 17 - ISH                             	State: Off
+PCH IP: 18 - P2SB                            	State: Off
+PCH IP: 19 - DFX                             	State: Off
+PCH IP: 20 - SCC                             	State: Off
+PCH IP: 21 - RSVD                            	State: Off
+PCH IP: 22 - FUSE                            	State: On
+PCH IP: 23 - CAMERA                          	State: Off
+PCH IP: 24 - RSVD                            	State: Off
+PCH IP: 25 - USB3-OTG                        	State: Off
+PCH IP: 26 - EXI                             	State: Off
+PCH IP: 27 - CSE                             	State: Off
+PCH IP: 28 - CSME_KVM                        	State: Off
+PCH IP: 29 - CSME_PMT                        	State: Off
+PCH IP: 30 - CSME_CLINK                      	State: Off
+PCH IP: 31 - CSME_PTIO                       	State: Off
+PCH IP: 32 - CSME_USBR                       	State: Off
+PCH IP: 33 - CSME_SUSRAM                     	State: Off
+PCH IP: 34 - CSME_SMT                        	State: Off
+PCH IP: 35 - RSVD                            	State: Off
+PCH IP: 36 - CSME_SMS2                       	State: Off
+PCH IP: 37 - CSME_SMS1                       	State: Off
+PCH IP: 38 - CSME_RTC                        	State: Off
+PCH IP: 39 - CSME_PSF                        	State: Off
+### pll_status
+MIPI PLL                        	State: Idle
+GEN2 USB2PCIE2 PLL              	State: Active
+DMIPCIE3 PLL                    	State: Idle
+SATA PLL                        	State: Idle
+### slp_s0_residency_usec
+0

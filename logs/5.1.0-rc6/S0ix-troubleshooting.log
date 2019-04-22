@@ -1,0 +1,101 @@
+$ cat /lib/modules/$(uname -r)/build/.config | grep -e INTEL_PMC -e INTEL_IPS
+CONFIG_INTEL_IPS=m
+CONFIG_INTEL_PMC_CORE=y
+CONFIG_INTEL_PMC_IPC=y
+
+$ sudo turbostat --Summary --show GFX%rc6 sleep 10
+turbostat version 18.07.27 - Len Brown <lenb@kernel.org>
+CPUID(0): GenuineIntel 0x16 CPUID levels; 0x80000008 xlevels; family:model:stepping 0x6:8e:a (6:142:10)
+CPUID(1): SSE3 MONITOR - EIST TM2 TSC MSR ACPI-TM HT TM
+CPUID(6): APERF, TURBO, DTS, PTM, HWP, HWPnotify, HWPwindow, HWPepp, No-HWPpkg, EPB
+cpu2: MSR_IA32_MISC_ENABLE: 0x00850089 (TCC EIST MWAIT PREFETCH TURBO)
+CPUID(7): SGX
+cpu2: MSR_IA32_FEATURE_CONTROL: 0x00040005 (Locked SGX)
+CPUID(0x15): eax_crystal: 2 ebx_tsc: 166 ecx_crystal_hz: 0
+TSC: 1992 MHz (24000000 Hz * 166 / 2 / 1000000)
+CPUID(0x16): base_mhz: 2000 max_mhz: 4000 bus_mhz: 100
+cpu2: MSR_MISC_PWR_MGMT: 0x00401cc0 (ENable-EIST_Coordination DISable-EPB DISable-OOB)
+RAPL: 17476 sec. Joule Counter Range, at 15 Watts
+cpu2: MSR_PLATFORM_INFO: 0x4043df1011400
+4 * 100.0 = 400.0 MHz max efficiency frequency
+20 * 100.0 = 2000.0 MHz base frequency
+cpu2: MSR_IA32_POWER_CTL: 0x0024005d (C1E auto-promotion: DISabled)
+cpu2: MSR_TURBO_RATIO_LIMIT: 0x25252828
+37 * 100.0 = 3700.0 MHz max turbo 4 active cores
+37 * 100.0 = 3700.0 MHz max turbo 3 active cores
+40 * 100.0 = 4000.0 MHz max turbo 2 active cores
+40 * 100.0 = 4000.0 MHz max turbo 1 active cores
+cpu2: MSR_CONFIG_TDP_NOMINAL: 0x00000012 (base_ratio=18)
+cpu2: MSR_CONFIG_TDP_LEVEL_1: 0x00080050 (PKG_MIN_PWR_LVL1=0 PKG_MAX_PWR_LVL1=0 LVL1_RATIO=8 PKG_TDP_LVL1=80)
+cpu2: MSR_CONFIG_TDP_LEVEL_2: 0x001400c8 (PKG_MIN_PWR_LVL2=0 PKG_MAX_PWR_LVL2=0 LVL2_RATIO=20 PKG_TDP_LVL2=200)
+cpu2: MSR_CONFIG_TDP_CONTROL: 0x00000000 ( lock=0)
+cpu2: MSR_TURBO_ACTIVATION_RATIO: 0x00000011 (MAX_NON_TURBO_RATIO=17 lock=0)
+cpu2: MSR_PKG_CST_CONFIG_CONTROL: 0x1e008008 (UNdemote-C3, UNdemote-C1, demote-C3, demote-C1, locked, pkg-cstate-limit=8 (unlimited))
+cpu2: cpufreq driver: intel_pstate
+cpu2: cpufreq governor: powersave
+cpufreq intel_pstate no_turbo: 0
+cpu2: MSR_MISC_FEATURE_CONTROL: 0x00000000 (L2-Prefetch L2-Prefetch-pair L1-Prefetch L1-IP-Prefetch)
+cpu0: MSR_PM_ENABLE: 0x00000001 (HWP)
+cpu0: MSR_HWP_CAPABILITIES: 0x01081228 (high 40 guar 18 eff 8 low 1)
+cpu0: MSR_HWP_REQUEST: 0xc0002804 (min 4 max 40 des 0 epp 0xc0 window 0x0 pkg 0x0)
+cpu0: MSR_HWP_INTERRUPT: 0x00000000 (Dis_Guaranteed_Perf_Change, Dis_Excursion_Min)
+cpu0: MSR_HWP_STATUS: 0x00000000 (No-Guaranteed_Perf_Change, No-Excursion_Min)
+cpu0: MSR_IA32_ENERGY_PERF_BIAS: 0x0000000f (powersave)
+cpu0: MSR_RAPL_POWER_UNIT: 0x000a0e03 (0.125000 Watts, 0.000061 Joules, 0.000977 sec.)
+cpu0: MSR_PKG_POWER_INFO: 0x00000078 (15 W TDP, RAPL 0 - 0 W, 0.000000 sec.)
+cpu0: MSR_PKG_POWER_LIMIT: 0x42816000dd80c8 (UNlocked)
+cpu0: PKG Limit #1: ENabled (25.000000 Watts, 28.000000 sec, clamp ENabled)
+cpu0: PKG Limit #2: ENabled (44.000000 Watts, 0.002441* sec, clamp DISabled)
+cpu0: MSR_DRAM_POWER_LIMIT: 0x5400de00000000 (UNlocked)
+cpu0: DRAM Limit: DISabled (0.000000 Watts, 0.000977 sec, clamp DISabled)
+cpu0: MSR_PP0_POLICY: 0
+cpu0: MSR_PP0_POWER_LIMIT: 0x00000000 (UNlocked)
+cpu0: Cores Limit: DISabled (0.000000 Watts, 0.000977 sec, clamp DISabled)
+cpu0: MSR_PP1_POLICY: 0
+cpu0: MSR_PP1_POWER_LIMIT: 0x00000000 (UNlocked)
+cpu0: GFX Limit: DISabled (0.000000 Watts, 0.000977 sec, clamp DISabled)
+cpu0: MSR_IA32_TEMPERATURE_TARGET: 0x05640000 (100 C)
+cpu0: MSR_IA32_PACKAGE_THERM_STATUS: 0x88350800 (47 C)
+cpu0: MSR_IA32_PACKAGE_THERM_INTERRUPT: 0x00000003 (100 C, 100 C)
+cpu2: MSR_PKGC3_IRTL: 0x0000884e (valid, 79872 ns)
+cpu2: MSR_PKGC6_IRTL: 0x00008876 (valid, 120832 ns)
+cpu2: MSR_PKGC7_IRTL: 0x00008894 (valid, 151552 ns)
+cpu2: MSR_PKGC8_IRTL: 0x000088fa (valid, 256000 ns)
+cpu2: MSR_PKGC9_IRTL: 0x0000894c (valid, 339968 ns)
+cpu2: MSR_PKGC10_IRTL: 0x00008bf2 (valid, 1034240 ns)
+12.356624 sec
+GFX%rc6
+68.91
+
+
+$ sudo cat /sys/kernel/debug/dri/0/i915_dmc_info
+fw loaded: yes
+path: i915/kbl_dmc_ver1_04.bin
+version: 1.4
+DC3 -> DC5 count: 13
+DC5 -> DC6 count: 0
+program base: 0x09004040
+ssp base: 0x00002fc0
+htp: 0x00b40068
+
+$ dmesg | grep DMC
+[    1.639146] [drm] Finished loading DMC firmware i915/kbl_dmc_ver1_04.bin (v1.4)
+
+$ echo 1 | sudo tee /sys/power/pm_debug_messages
+1
+$ echo freeze | sudo tee /sys/power/state
+freeze
+$ dmesg | grep LPI
+[    0.007851] ACPI: LPIT 0x000000002FFBB000 000094 (v01 LENOVO CB-01    00000001 ACPI 00040000)
+[  522.514823] ACPI: \_PR_.PR00: LPI: Device not power manageable
+[  522.514829] ACPI: \_PR_.PR01: LPI: Device not power manageable
+[  522.514832] ACPI: \_PR_.PR02: LPI: Device not power manageable
+[  522.514835] ACPI: \_PR_.PR03: LPI: Device not power manageable
+[  522.514838] ACPI: \_PR_.PR04: LPI: Device not power manageable
+[  522.514841] ACPI: \_PR_.PR05: LPI: Device not power manageable
+[  522.514843] ACPI: \_PR_.PR06: LPI: Device not power manageable
+[  522.514846] ACPI: \_PR_.PR07: LPI: Device not power manageable
+[  522.514850] ACPI: \_SB_.PCI0.GFX0: LPI: Device not power manageable
+[  522.514858] ACPI: \_SB_.PCI0.RP05.PXSX: LPI: Device not power manageable
+[  522.514862] ACPI: \_SB_.PCI0.RP09.PXSX: LPI: Device not power manageable
+
