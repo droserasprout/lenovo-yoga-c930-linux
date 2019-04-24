@@ -56,7 +56,7 @@ You can also apply fix immediately but it will most likely fail due to soundcard
 
 It seems like to fix this issue either Lenovo should release BIOS update with correct pin mappings or some model definition should be added to snd-hda-intel module like it was done for another Lenovo laptops with surround sound. See [Lenovo Y530 example](https://ubuntuforums.org/showthread.php?t=1596068).
 
-**TODO:** File ALSA bug
+[Bug 203409 - Lenovo YOGA C930-13IKB (ALC298): internal mic and most of surround speakers not working](https://bugzilla.kernel.org/show_bug.cgi?id=203409)
 
 ## Notes
 ### Older kernels
@@ -100,7 +100,7 @@ $ cat /sys/devices/system/cpu/cpuidle/low_power_idle_cpu_residency_us
 ```
 So seems like S0ix is broken for now.
 
-[kernel.org upstream bug filed](https://bugzilla.kernel.org/show_bug.cgi?id=203383)
+[Bug 203383 - Lenovo YOGA C930-13IKB unable to enter S0ix](https://bugzilla.kernel.org/show_bug.cgi?id=203383)
 
 #### S3 (deep) power state not working
 
