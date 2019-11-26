@@ -43,7 +43,7 @@ If your main question is "Should I buy this laptop for using with Linux now?" th
 ### Speaker
 This laptop has 5.1 speaker configuration with only Front Left and Front Right working by default. This hack can enable another one (Front Center or LFE, not sure):
 
-**NOTE:** This hack can make headphone sound quieter.
+**NOTE:** This hack can make headphone sound quieter. Try setting pin `0x21` to "Override" with "Headphone" to resolve.
 
 * Install `alsa-tools-gui` package (`alsa-utils` in some distributions)
 * Run `hdajackretask`
