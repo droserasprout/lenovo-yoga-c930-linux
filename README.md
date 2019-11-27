@@ -100,6 +100,8 @@ $ cat /sys/devices/system/cpu/cpuidle/low_power_idle_cpu_residency_us
 ```
 So seems like S0ix is broken for now.
 
+Fixed in kernels 5.3 and newer (not tested)
+
 [Bug 203383 - Lenovo YOGA C930-13IKB unable to enter S0ix](https://bugzilla.kernel.org/show_bug.cgi?id=203383)
 
 #### S3 (deep) power state not working
