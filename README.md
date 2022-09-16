@@ -27,20 +27,25 @@ If your main question is "Should I buy this laptop for using with Linux now?" th
 | Wi-Fi, Bluetooth | ✔️ Working | [fix for kernels older than 5.1-rc1](#older-kernels) |
 | Speakers | ⚠️ Partially | [Fix needed](#speaker) for hinge soundbar, bottom speakers not working |
 | Headphone plug | ✔️ Working | |
-| Microphone | ❌ Not working | |
+| Microphone | ✔️ Working | See [blog post for mic and speaker fix](https://gist.github.com/crojewsk/4e6382bfb0dbfaaf60513174211f29cb)|
 | Power Management | ⚠️ Partially | critical suspend issues, see [notes](#power-management-issues)
 | Touchscreen | ✔️ Working |  |
 | Active pen | ✔️ Working | does not report battery level |
 | Rotation sensor | ✔️ Working |  |
 | Light sensor | ✔️ Working |  |
 | Fingerprint sensor | ❌ Not working | you can track development progress [here](https://github.com/nmikhailov/Validity90) |
-| HDMI output | ⚠️ Not tested |  |
-| HDMI audio output | ⚠️ Not tested |  |
+| HDMI output | ⚠️ Partially | Working on kernel 5.16, may work on lower versions as well  |
+| HDMI audio output | ⚠️ Partially | Working on kernel 5.16, may work on lower versions as well |
 | Webcam | ✔️ Working |  |
 
 ## Fixes
 
 ### Speaker
+
+[This blog post](https://gist.github.com/crojewsk/4e6382bfb0dbfaaf60513174211f29cb) describes how to default to the proper soundcard driver for Intel skylake chips, such as the one in the Yoga C930. This will enable HDMI audio output, speaker output, and digital microphone input.
+
+### Additional Speaker Hack
+
 This laptop has 5.1 speaker configuration with only Front Left and Front Right working by default. This hack can enable another one (Front Center or LFE, not sure):
 
 **NOTE:** This hack can make headphone sound quieter. Try setting pin `0x21` to "Override" with "Headphone" to resolve.
